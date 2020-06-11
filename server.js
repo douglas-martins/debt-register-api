@@ -26,6 +26,7 @@ const express = require('express');
 const app = express();
 const App = require('./app');
 
+app.set('baseUrl', config.baseUrl);
 app.use(bodyParser.json());
 app.use(App);
 
