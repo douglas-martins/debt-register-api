@@ -1,50 +1,32 @@
 /**
  * Application startup procedures.
- *
  */
 
+/**
+ * Reference for the config file with the application infos
+ * @type {{appVersion: string | undefined, baseUrl: string | undefined, port: number, timezone: string, language: string, db: {password: string | undefined, port: string | undefined, name: string | undefined, host: string | undefined, user: string | undefined}}}
+ */
 const config = require('@config/config');
+
+/**
+ * Reference for the express lib
+ * @type {createApplication}
+ */
 const express = require('express');
+
+/**
+ * Reference for this application
+ * @type {*|app}
+ */
 const app = express();
-const mongoose = require('@connections/mongo');
 
-// Formatting response
-// app.response.__proto__.processResponse = function (status=500, message = 'Internal error!', data = {}, debug = {}) {
-//     let result = {};
-//
-//     result.status = status;
-//     result.message = message;
-//
-//     if (Object.keys(data).length !== 0) {
-//         result.data = data;
-//     }
-//
-//     if (Object.keys(debug).length !== 0) {
-//         result.debug = debug;
-//     }
-//
-//     result.version = '1.0.0';
-//     result.endpoint = config.baseUrl;
-//
-//     this.status(status).json(result);
-// };
+// Requests for debt
+const debt = require('@routes/debt-route');
+app.use('/debt', debt);
 
-// // Requests for root address - index
-// const baseRoute = require('@routes/base');
-// app.use('/', baseRoute);
-//
-// // Requests for auth - oauth2
-// const auth = require('@routes/auth');
-// app.use('/o', auth);
-//
-// // Requests for medicines
-// const medicine = require('@routes/medicine');
-// app.use('/medicines', medicine);
-
-
-// Route not found, send 404.
-app.all('*', (req, res) => {
-    res.json({status: 404, message: 'Not found!'});
+// Route API Home Screen.
+app.all('*', (request, response) => {
+    response.sendFile(__dirname + '/src/views/home.html');
 });
 
 module.exports = app;

@@ -5,10 +5,8 @@
 
 const mongoose = require('mongoose');
 const host = process.env.DATABASE_HOST || 'localhost'
-const port = process.env.DATABASE_PORT || 27017
-const user = process.env.DATABASE_USER || 'root'
-const password = process.env.DATABASE_PASSWORD || ''
-const mongoURL = `mongodb://${user}:${password}@${host}:${port}/${process.env.DATABASE_NAME}`;
+const port = process.env.DATABASE_PORT || 2701
+const mongoURL = `mongodb://${host}:${port}/${process.env.DATABASE_NAME}?authSource=admin`;
 
 mongoose.connect(mongoURL, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 

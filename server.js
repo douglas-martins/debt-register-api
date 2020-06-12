@@ -25,9 +25,10 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 const App = require('./app');
+const mongoose = require('@connections/mongo');
 
-app.set('baseUrl', config.baseUrl);
 app.use(bodyParser.json());
+app.set('baseUrl', config.baseUrl);
 app.use(App);
 
 // Develop server setup

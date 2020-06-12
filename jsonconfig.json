@@ -9,6 +9,8 @@
       "@models/*": ["src/models/*"],
       "@routes/*": ["src/routes/*"],
       "@services/*": ["src/services/*"],
+      "@middleware/*": ["src/middleware/*"],
+      "@validators/*": ["src/middleware/validators/*"],
       "@infra/*": ["infra"]
     }
   }
