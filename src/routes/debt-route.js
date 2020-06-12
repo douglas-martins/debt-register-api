@@ -48,7 +48,7 @@ router.post('/', debtValidator.createRules(), debtValidator.validate, debtContro
  *
  * @apiSuccess (200) {Object} mixed `Debt` object
  */
-router.put('/', debtValidator.updateRules(), debtValidator.validate, debtController.update);
+router.put('/:objectId', debtValidator.updateRules(), debtValidator.validate, debtController.update);
 
 /**
  * @api {get} /debt/ Get Debt

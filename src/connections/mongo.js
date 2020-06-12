@@ -1,6 +1,5 @@
 /**
  * Initiate the Mongoose configurations for using in this system
- *
  */
 
 const mongoose = require('mongoose');

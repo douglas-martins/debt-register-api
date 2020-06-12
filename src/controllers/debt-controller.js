@@ -1,4 +1,6 @@
-const config = require('@config/config');
+/**
+ * Reference for the debt service
+ */
 const debtService = require('@services/debt-service')
 
 /**
@@ -22,7 +24,9 @@ module.exports.create = async (request, response, next) => {
  * @return {Promise<void>}
  */
 module.exports.update = async (request, response, next) => {
+    const result = await debtService.update(request.body, request.params.objectId);
 
+    response.json(result);
 };
 
 /**

@@ -18,9 +18,18 @@ module.exports.create = async (data) => {
     }
 };
 
-
-module.exports.update = async (data) => {
-
+/**
+ * Update debt document on database
+ * @param data: data tha will be update on the document
+ * @param objectId: document objectId for update the correct debt
+ * @return {Promise<*>}
+ */
+module.exports.update = async (data, objectId) => {
+    try {
+        return await debtModel.debt.findOneAndUpdate({_id: objectId}, {$set: data}, {overwrite: true});
+    } catch (e) {
+        throw new Error(e);
+    }
 };
 
 /**

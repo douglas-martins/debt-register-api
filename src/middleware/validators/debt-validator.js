@@ -3,8 +3,6 @@
  */
 const {body, validationResult} = require('express-validator');
 
-const moment = require('moment');
-
 /**
  * Rules for create the debt document
  * @return {ValidationChain[]}
@@ -15,7 +13,6 @@ module.exports.createRules = () => {
         body('price', 'Invalid debt price').exists().isNumeric(),
         body('reason', 'Invalid debt reason').exists().isString(),
         body('debtDate', 'Invalid debt date').exists().isString()
-        // body('debtDate', 'Invalid deb date').exists().isIn(['enabled', 'disabled'])
     ];
 };
 
@@ -29,7 +26,6 @@ module.exports.updateRules = () => {
         body('price', 'Invalid debt price').optional().isNumeric(),
         body('reason', 'Invalid debt reason').optional().isString(),
         body('debtDate', 'Invalid debt date').optional().isDataURI()
-        // body('debtDate', 'Invalid deb date').exists().isIn(['enabled', 'disabled'])
     ];
 };
 
@@ -38,7 +34,7 @@ module.exports.updateRules = () => {
  * @param request
  * @param response
  * @param next
- * @return {any}
+ * @return {*}
  */
 module.exports.validate = (request, response, next) => {
     const errors = validationResult(request);
