@@ -2,11 +2,6 @@
  * Application startup procedures.
  */
 
-/**
- * Reference for the config file with the application infos
- * @type {{appVersion: string | undefined, baseUrl: string | undefined, port: number, timezone: string, language: string, db: {password: string | undefined, port: string | undefined, name: string | undefined, host: string | undefined, user: string | undefined}}}
- */
-const config = require('@config/config');
 
 /**
  * Reference for the express lib
