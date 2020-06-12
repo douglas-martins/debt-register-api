@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -11,67 +10,139 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <!-- Bulma Version 0.8.x-->
-    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
-    <link rel="stylesheet" type="text/css" href="../views/css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
 <body>
-    <section class="hero is-info is-fullheight">
-        <div class="hero-head">
-            <nav class="navbar">
-                <div class="container">
-                    <div class="navbar-brand">
-                        <a class="navbar-item" href="../">
+<section class="hero is-info is-fullheight">
+    <div class="hero-head">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="../">
                             <span class="icon">
                                 <i class="fa fa-heart"></i>
                             </span>
-                            <span>Debt Register</span>
-                        </a>
-                    </div>
-                    <div id="navbarMenu" class="navbar-menu">
-                        <div class="navbar-end">
+                        <span>Debt Register</span>
+                    </a>
+                </div>
+                <div id="navbarMenu" class="navbar-menu">
+                    <div class="navbar-end">
                             <span class="navbar-item">
-                                <a class="button is-white is-outlined" href="https://github.com/douglas-martins/debt-register-api">
+                                <a class="button is-white is-outlined"
+                                   href="https://github.com/douglas-martins/debt-register-api">
                                     <span class="icon">
                                         <i class="fa fa-github"></i>
                                     </span>
                                     <span>View Source</span>
                                 </a>
                             </span>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-            </div>
-
-            <div class="hero-body">
-                <div class="container has-text-centered">
-                    <div class="column is-6 is-offset-3">
-                        <h1 class="title">
-                            API RESTful for handle register debts from users
-                        </h1>
-                        <h2 class="subtitle">
-                            $this is the best software platform for running an internet business. We handle billions of dollars every year for forward-thinking businesses around the world.
-                        </h2>
                     </div>
                 </div>
             </div>
+        </nav>
 
-        <div class="hero-footer">
-            <div class="container has-text-centered">
-                <div class="column is-6 is-offset-3">
-<!--                    {#            <span>Made by Douglas Martins <i class="far fa-copyright"></i>  2020</span>#}-->
-                    <h3 class="subtitle">Made by Douglas Martins  <i class="far fa-copyright"></i> 2020</h3>
-
-                </div>
+        <div class="container has-text-centered">
+            <div class="column is-6 is-offset-3">
+                <h1 class="title">
+                    API RESTful for handle register debts from users
+                </h1>
             </div>
         </div>
 
-    </section>
-      <div class="columns is-mobile is-centered">
-          <div class="control">
-          </div>
-      </div>
+    </div>
+
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div class="column is-6 is-offset-3">
+                <h1 class="title">
+                    Documentation
+                </h1>
+
+                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                    <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Endpoint</th>
+                        <th>Description</th>
+                        <th>Params</th>
+                    </tr>
+                    </thead>
+
+
+                    <tbody>
+                    <tr>
+                        <td class="bold">POST</td>
+                        <td><a href="https://github.com/douglas-martins/debt-register-api">/</a></td>
+                        <td>Create a new Debt document in database</td>
+                        <td>None</td>
+                    </tr>
+
+                    <tr>
+                        <td class="bold">PUT</td>
+                        <td><a href="https://github.com/douglas-martins/debt-register-api">/:objectId</a></td>
+                        <td>Update a Debt document data in database</td>
+                        <td>objectId: id for the document on database</td>
+                    </tr>
+
+                    <tr>
+                        <td class="bold">GET</td>
+                        <td><a href="https://github.com/douglas-martins/debt-register-api">/</a></td>
+                        <td>Get a Debt document in database by the _id given in the request body</td>
+                        <td>None</td>
+                    </tr>
+
+                    <tr>
+                        <td class="bold">GET</td>
+                        <td><a id="all">/all</a></td>
+                        <td>Get all Debts documents in database</td>
+                        <td>None</td>
+                    </tr>
+
+                    <tr>
+                        <td class="bold">GET</td>
+                        <td><a href="https://github.com/douglas-martins/debt-register-api">/all/:userId</a></td>
+                        <td>Get all Debts documents in database from a given user</td>
+                        <td>userId: for get only his debts</td>
+                    </tr>
+
+                    <tr>
+                        <td class="bold">DELETE</td>
+                        <td><a href="https://github.com/douglas-martins/debt-register-api">/</a></td>
+                        <td>Delete Debt document in database from a given _id</td>
+                        <td>None</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+<!--        <div class="container">-->
+<!--            <div class="column is-6 is-offset-3">-->
+<!--                <h1 class="title">-->
+<!--                    Response-->
+<!--                </h1>-->
+<!--                    <pre>-->
+<!--                        <code id="code"></code>-->
+<!--                    </pre>-->
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+
+    <div class="hero-footer">
+        <div class="container has-text-centered">
+            <div class="column is-6 is-offset-3">
+                <h3 class="subtitle">Made by Douglas Martins <i class="far fa-copyright"></i> 2020</h3>
+
+            </div>
+        </div>
+    </div>
+
+</section>
 </body>
 
 </html>
