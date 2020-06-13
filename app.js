@@ -10,10 +10,19 @@
 const express = require('express');
 
 /**
+ * Reference for the cors lib
+ * @type {*|middlewareWrapper}
+ */
+const cors = require('cors');
+
+
+/**
  * Reference for this application
  * @type {*|app}
  */
 const app = express();
+
+app.use(cors());
 
 // Requests for debt
 const debt = require('@routes/debt-route');
