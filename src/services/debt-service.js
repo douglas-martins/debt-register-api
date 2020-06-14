@@ -14,6 +14,7 @@ module.exports.create = async (data) => {
 
         return await debt.save();
     } catch (e) {
+        console.log(e);
         throw new Error(e);
     }
 };
@@ -28,6 +29,7 @@ module.exports.update = async (data, objectId) => {
     try {
         return await debtModel.debt.findOneAndUpdate({_id: objectId}, {$set: data}, {overwrite: true});
     } catch (e) {
+        console.log(e);
         throw new Error(e);
     }
 };
@@ -41,6 +43,7 @@ module.exports.find = async (_id) => {
     try {
         return await debtModel.debt.findById(_id).lean();
     } catch (e) {
+        console.log(e);
         throw new Error(e);
     }
 };
@@ -53,6 +56,7 @@ module.exports.findAll = async () => {
     try {
         return await debtModel.debt.find().lean();
     } catch (e) {
+        console.log(e);
         throw new Error(e);
     }
 };
@@ -66,6 +70,7 @@ module.exports.findAllByUser = async (userId) => {
     try {
         return await debtModel.debt.find({userId: userId}).lean();
     } catch (e) {
+        console.log(e);
         throw new Error(e);
     }
 };
@@ -79,6 +84,7 @@ module.exports.delete = async (_id) => {
     try {
         return await debtModel.debt.deleteOne({_id: _id}).lean();
     } catch (e) {
+        console.log(e);
         throw new Error(e);
     }
 };
