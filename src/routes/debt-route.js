@@ -51,7 +51,7 @@ router.post('/', debtValidator.createRules(), debtValidator.validate, debtContro
 router.put('/:objectId', debtValidator.updateRules(), debtValidator.validate, debtController.update);
 
 /**
- * @api {get} /debt/ Get Debt
+ * @api {get} /debt/:_id Get Debt
  * @apiName Get a debt
  * @apiPermission user
  * @apiGroup Debt
@@ -85,7 +85,7 @@ router.get('/all', debtController.findAll);
 router.get('/all/:userId', debtController.findAllByUser);
 
 /**
- * @api {delete} /debt/ Delete al Debt
+ * @api {delete} /debt/:_id Delete al Debt
  * @apiName Delete a debt
  * @apiPermission user
  * @apiGroup Debt
