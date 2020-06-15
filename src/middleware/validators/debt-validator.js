@@ -31,9 +31,9 @@ module.exports.updateRules = () => {
 
 /**
  * Validate the request body
- * @param request
- * @param response
- * @param next
+ * @param request: API request information
+ * @param response: object that will be send to the client
+ * @param next: go to the next element from request
  * @return {*}
  */
 module.exports.validate = (request, response, next) => {

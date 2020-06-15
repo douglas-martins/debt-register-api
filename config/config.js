@@ -4,7 +4,6 @@
  * Config file, part of core tasks.
  *
  * @package  Express
- * @author Douglas Martins <douglasfabiamartins@hotmail.com>
  *
  */
 

@@ -9,7 +9,6 @@ const http = require('http');
 
 /**
  * Listening on insecure port just for development purposes.
- *
  * @param app
  */
 module.exports = (app) => {

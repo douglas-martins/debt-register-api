@@ -4,7 +4,6 @@
  * Start script, setup initial definitions.
  *
  * @package  Express
- * @author Douglas Martins <douglasfabiamartins@hotmail.com>
  *
  */
 
