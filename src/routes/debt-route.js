@@ -60,7 +60,7 @@ router.put('/:objectId', debtValidator.updateRules(), debtValidator.validate, de
  *
  * @apiSuccess (200) {Object[]} mixed `Debt` object
  */
-router.get('/', debtController.find);
+router.get('/:_id', debtController.find);
 
 /**
  * @api {get} /debt/all/ Get all Debts
@@ -94,7 +94,7 @@ router.get('/all/:userId', debtController.findAllByUser);
  *
  * @apiSuccess (200) {Object[]} mixed `Debt` object
  */
-router.delete('/', debtController.delete);
+router.delete('/:_id', debtController.delete);
 
 
 module.exports = router;

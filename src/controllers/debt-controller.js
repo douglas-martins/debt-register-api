@@ -37,7 +37,7 @@ module.exports.update = async (request, response, next) => {
  * @return {Promise<void>}
  */
 module.exports.find = async (request, response, next) => {
-    const result = await debtService.find(request.body._id);
+    const result = await debtService.find(request.params._id);
 
     response.json(result);
 };
@@ -76,7 +76,7 @@ module.exports.findAllByUser = async (request, response, next) => {
  * @return {Promise<void>}
  */
 module.exports.delete = async (request, response, next) => {
-    const result = await debtService.delete(request.body._id);
+    const result = await debtService.delete(request.params._id);
 
     response.json(result);
 };

@@ -25,7 +25,7 @@ module.exports.updateRules = () => {
         body('userId', 'Invalid user id').optional().isInt(),
         body('price', 'Invalid debt price').optional().isNumeric(),
         body('reason', 'Invalid debt reason').optional().isString(),
-        body('debtDate', 'Invalid debt date').optional().isDataURI()
+        body('debtDate', 'Invalid debt date').optional().isString()
     ];
 };
 
