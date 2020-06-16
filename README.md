@@ -67,7 +67,7 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
 
 ```bash
 # Copy the base file for the environment one (from the / for this project)
-$ cp .env_base .env
+$ cp .env_template .env
 ```
 
 Default value for .env:
