@@ -38,11 +38,14 @@ If the installation was successful, you should be able to run the following comm
 If you need to update `npm`, you can make it using `npm`! Cool right? After running the following command, just open again the command line and be happy.
 
     $ npm install npm -g
-   
-   ---
- 
+
+
+--- 
 ### MongoDB
-- #### MongoDB installation on <a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/">Windows</a>, <a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/">Ubuntu</a>, <a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/">macOs</a>
+#### MongoDB installation on:
+- [Windows](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
+- [Ubuntu](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu)
+- [macOs](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
 
 ---
 ###
@@ -69,12 +72,14 @@ $ cp .env_base .env
 
 Default value for .env:
 
+```dotenv
 APP_VERSION=1.0.0                                 
 HOST=localhost    
 PORT=3000   
 DATABASE_HOST=127.0.0.1   
 DATABASE_PORT=27017   
 DATABASE_NAME=debts
+```
 
 ## Running the project
 
