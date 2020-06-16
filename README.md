@@ -38,7 +38,13 @@ If the installation was successful, you should be able to run the following comm
 If you need to update `npm`, you can make it using `npm`! Cool right? After running the following command, just open again the command line and be happy.
 
     $ npm install npm -g
+   
+   ---
+ 
+### MongoDB
+- #### MongoDB installation on <a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/">Windows</a>, <a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/">Ubuntu</a>, <a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/">macOs</a>
 
+---
 ###
 ### Yarn installation
   After installing node, this project will need yarn too, so just run the following command.
@@ -55,16 +61,21 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
 
 ## Configure app
 
-Open `a/nice/path/to/a.file` then edit it with your settings. You will need:
 
-- A setting;
-- Another setting;
-- One more setting;
+```bash
+# Copy the base file for the environment one (from the / for this project)
+$ cp .env_base .env
+```
+
+Default value for .env:
+
+APP_VERSION=1.0.0                                 
+HOST=localhost    
+PORT=3000   
+DATABASE_HOST=127.0.0.1   
+DATABASE_PORT=27017   
+DATABASE_NAME=debts
 
 ## Running the project
 
     $ yarn start dev
-
-## Simple build for production
-
-    $ yarn build
