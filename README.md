@@ -1,6 +1,7 @@
-<img src="https://cdn.iconscout.com/icon/free/png-256/node-js-1174925.png"  alt=""/>
-<img src="https://4.bp.blogspot.com/-X7UPkOQjQuQ/WuHLUEM7SDI/AAAAAAAAAOY/rXGXSOfPP2ckF_cSOC3C5d3B_BhIgNcxACLcBGAs/s1600/mongodb%2B%25282%2529.png"  alt=""/>
-<p></p>
+<p float="left">
+  <img src="https://cdn.iconscout.com/icon/free/png-256/node-js-1174925.png"  alt=""/>
+  <img src="https://4.bp.blogspot.com/-X7UPkOQjQuQ/WuHLUEM7SDI/AAAAAAAAAOY/rXGXSOfPP2ckF_cSOC3C5d3B_BhIgNcxACLcBGAs/s1600/mongodb%2B%25282%2529.png"  alt=""/>
+</p>
 
 # Debt Register API
 
