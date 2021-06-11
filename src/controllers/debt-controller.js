@@ -1,82 +1,163 @@
 /**
  * Reference for the debt service
  */
-const debtService = require('@services/debt-service')
+const {
+    createDebtService, updateDebtService, findDebtService, findAllDebtsService,
+    findAllDebtsByUserService, deleteDebtService
+} = require('@services/debt-service');
 
 /**
  * Controller for create a Debt document
  * @param request: API request information
  * @param response: object that will be send to the client
- * @param next: go to the next element from request
  * @return {Promise<void>}
  */
-module.exports.create = async (request, response, next) => {
-    const result = await debtService.create(request.body);
+const createDebt = async (request, response) => {
+    const { body } = request;
 
-    response.json(result);
-};
+    try {
+        const result = await createDebtService(body);
+
+        response.json(result);
+    } catch (e) {
+        console.error(
+            `DebtController - createDebt
+            (body) - ${JSON.stringify(request.body || {})}
+            (queue) - ${JSON.stringify(request.queue || {})}
+            (params) - ${JSON.stringify(request.params || {})}
+            (error) - ${e.message}`
+        );
+        response.json({ message: 'Can not create debt!' });
+    }
+}
 
 /**
  * Controller for update a Debt document
  * @param request: API request information
  * @param response: object that will be send to the client
- * @param next: go to the next element from request
  * @return {Promise<void>}
  */
-module.exports.update = async (request, response, next) => {
-    const result = await debtService.update(request.body, request.params.objectId);
+const updateDebt = async (request, response) => {
+    const { body } = request;
+    const { objectId } = request.params;
 
-    response.json(result);
+    try {
+        const result = await updateDebtService(body, objectId);
+
+        response.json(result);
+    } catch (e) {
+        console.error(
+            `DebtController - updateDebt
+            (body) - ${JSON.stringify(request.body || {})}
+            (queue) - ${JSON.stringify(request.queue || {})}
+            (params) - ${JSON.stringify(request.params || {})}
+            (error) - ${e.message}`
+        );
+        response.json({ message: 'Can not update debt!' });
+    }
 };
 
 /**
  * Controller for get a Debt document by hist objectId
  * @param request: API request information
  * @param response: object that will be send to the client
- * @param next: go to the next element from request
  * @return {Promise<void>}
  */
-module.exports.find = async (request, response, next) => {
-    const result = await debtService.find(request.params._id);
+const findDebt = async (request, response) => {
+    const { _id } = request.params;
 
-    response.json(result);
+    try {
+        const result = await findDebtService(_id);
+
+        response.json(result);
+    } catch (e) {
+        console.error(
+            `DebtController - findDebt
+            (body) - ${JSON.stringify(request.body || {})}
+            (queue) - ${JSON.stringify(request.queue || {})}
+            (params) - ${JSON.stringify(request.params || {})}
+            (error) - ${e.message}`
+        );
+        response.json({ message: 'Can not find debt!' });
+    }
 };
 
 /**
  * Controller for get all Debts documents on database
  * @param request: API request information
  * @param response: object that will be send to the client
- * @param next: go to the next element from request
  * @return {Promise<void>}
  */
-module.exports.findAll = async (request, response, next) => {
-    const result = await debtService.findAll();
+const findAllDebts = async (request, response) => {
+    try {
+        const result = await findAllDebtsService();
 
-    response.json(result);
+        response.json(result);
+    } catch (e) {
+        console.error(
+            `DebtController - findAllDebts
+            (body) - ${JSON.stringify(request.body || {})}
+            (queue) - ${JSON.stringify(request.queue || {})}
+            (params) - ${JSON.stringify(request.params || {})}
+            (error) - ${e.message}`
+        );
+        response.json({ message: 'Can not find list of debts!' });
+    }
 };
 
 /**
  * Controller for get all Debts documents from a userId given on URL
  * @param request: API request information
  * @param response: object that will be send to the client
- * @param next: go to the next element from request
  * @return {Promise<void>}
  */
-module.exports.findAllByUser = async (request, response, next) => {
-    const result = await debtService.findAllByUser(request.params.userId);
+const findAllDebtsByUser = async (request, response) => {
+    try {
+        const result = await findAllDebtsByUserService(request.params.userId);
 
-    response.json(result);
+        response.json(result);
+    } catch (e) {
+        console.error(
+            `DebtController - findAllDebtsByUser
+            (body) - ${JSON.stringify(request.body || {})}
+            (queue) - ${JSON.stringify(request.queue || {})}
+            (params) - ${JSON.stringify(request.params || {})}
+            (error) - ${e.message}`
+        );
+        response.json({ message: 'Can not find user debts!' });
+    }
 };
 
 /**
  *
  * @param request: API request information
  * @param response: object that will be send to the client
- * @param next: go to the next element from request
  * @return {Promise<void>}
  */
-module.exports.delete = async (request, response, next) => {
-    const result = await debtService.delete(request.params._id);
+const deleteDebt = async (request, response) => {
+    const { _id } = request.params;
 
-    response.json(result);
+    try {
+        const result = await deleteDebtService(_id);
+
+        response.json(result);
+    } catch (e) {
+        console.error(
+            `DebtController - deleteDebt
+            (body) - ${JSON.stringify(request.body || {})}
+            (queue) - ${JSON.stringify(request.queue || {})}
+            (params) - ${JSON.stringify(request.params || {})}
+            (error) - ${e.message}`
+        );
+        response.json({ message: 'Can not delete debt!' });
+    }
+};
+
+module.exports = {
+    createDebt,
+    updateDebt,
+    findDebt,
+    findAllDebts,
+    findAllDebtsByUser,
+    deleteDebt
 };

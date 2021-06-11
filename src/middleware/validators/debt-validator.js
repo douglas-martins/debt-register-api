@@ -5,9 +5,9 @@ const {body, validationResult} = require('express-validator');
 
 /**
  * Rules for create the debt document
- * @return {ValidationChain[]}
+ * @return {Array} list with validations
  */
-module.exports.createRules = () => {
+const createDebtRules = () => {
     return  [
         body('userId', 'Invalid user id').exists().isInt(),
         body('price', 'Invalid debt price').exists().isNumeric(),
@@ -18,9 +18,9 @@ module.exports.createRules = () => {
 
 /**
  * Rules for update the debt document
- * @return {[ValidationChain, ValidationChain, ValidationChain, ValidationChain]}
+ * @return {Array} list with validations
  */
-module.exports.updateRules = () => {
+const updateDebtRules = () => {
     return  [
         body('userId', 'Invalid user id').optional().isInt(),
         body('price', 'Invalid debt price').optional().isNumeric(),
@@ -36,7 +36,7 @@ module.exports.updateRules = () => {
  * @param next: go to the next element from request
  * @return {*}
  */
-module.exports.validate = (request, response, next) => {
+const validateDebt = (request, response, next) => {
     const errors = validationResult(request);
     if (errors.isEmpty()) {
         return next();
@@ -48,4 +48,10 @@ module.exports.validate = (request, response, next) => {
     return response.status(422).json({
         errors: extractedErrors,
     });
+};
+
+module.exports = {
+    createDebtRules,
+    updateDebtRules,
+    validateDebt
 };

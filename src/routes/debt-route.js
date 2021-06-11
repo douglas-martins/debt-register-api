@@ -1,18 +1,19 @@
 /**
  * Routes for debt document.
- * @type {e | (() => Express)}
  */
 const express = require('express');
 
 /**
  * Reference for the controller of this document
  */
-const debtController = require('@controllers/debt-controller');
+const {
+    createDebt, deleteDebt, findAllDebts, findAllDebtsByUser, findDebt, updateDebt
+} = require('@controllers/debt-controller');
 
 /**
  * Reference for the validators for the debt document
  */
-const debtValidator =  require('@validators/debt-validator');
+const { updateDebtRules, createDebtRules, validateDebt } =  require('@validators/debt-validator');
 
 /**
  * Reference for Router on Express
@@ -33,7 +34,7 @@ const router = express.Router();
  *
  * @apiSuccess (200) {Object} mixed `Debt` object
  */
-router.post('/', debtValidator.createRules(), debtValidator.validate, debtController.create);
+router.post('/', createDebtRules(), validateDebt, createDebt);
 
 /**
  * @api {put} /debt/:userId Update Debt
@@ -48,7 +49,7 @@ router.post('/', debtValidator.createRules(), debtValidator.validate, debtContro
  *
  * @apiSuccess (200) {Object} mixed `Debt` object
  */
-router.put('/:objectId', debtValidator.updateRules(), debtValidator.validate, debtController.update);
+router.put('/:objectId', updateDebtRules, validateDebt, updateDebt);
 
 /**
  * @api {get} /debt/:_id Get Debt
@@ -60,7 +61,7 @@ router.put('/:objectId', debtValidator.updateRules(), debtValidator.validate, de
  *
  * @apiSuccess (200) {Object[]} mixed `Debt` object
  */
-router.get('/:_id', debtController.find);
+router.get('/:_id', findDebt);
 
 /**
  * @api {get} /debt/all/ Get all Debts
@@ -70,7 +71,7 @@ router.get('/:_id', debtController.find);
  *
  * @apiSuccess (200) {Object[]} mixed `Debt` object
  */
-router.get('/all', debtController.findAll);
+router.get('/all', findAllDebts);
 
 /**
  * @api {get} /debt/all/:userId Get all Debts from a user
@@ -82,7 +83,7 @@ router.get('/all', debtController.findAll);
  *
  * @apiSuccess (200) {Object[]} mixed `Debt` object
  */
-router.get('/all/:userId', debtController.findAllByUser);
+router.get('/all/:userId', findAllDebtsByUser);
 
 /**
  * @api {delete} /debt/:_id Delete al Debt
@@ -94,7 +95,7 @@ router.get('/all/:userId', debtController.findAllByUser);
  *
  * @apiSuccess (200) {Object[]} mixed `Debt` object
  */
-router.delete('/:_id', debtController.delete);
+router.delete('/:_id', deleteDebt);
 
 
 module.exports = router;

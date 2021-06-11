@@ -3,26 +3,29 @@
  * @type {Mongoose}
  */
 const mongoose = require('mongoose');
+const { Schema } = mongoose;
+const { Types } = Schema;
+const { Number, String } = Types;
 
 /**
  * Debt document model
  * @type: {*|Schema}
  */
-const debtModel = new mongoose.Schema({
+const debtModel = new Schema({
     userId: {
-        type: mongoose.Schema.Types.Number,
+        type: Number,
         required: [true, 'User id from the JSONPlaceholder']
     },
     price: {
-        type: mongoose.Schema.Types.Number,
+        type: Number,
         require: [true, 'The debtModel price']
     },
     reason: {
-        type: mongoose.Schema.Types.String,
+        type: String,
         required: [true, 'The reason for this debtModel']
     },
     debtDate: {
-        type: mongoose.Schema.Types.String,
+        type: String,
         default: Date.now(),
         require: [true, 'The date of the payment for this debtModel was made']
     }
@@ -30,6 +33,5 @@ const debtModel = new mongoose.Schema({
 
 /**
  * Model for the debtModel document
- * @type {((typedArray: (Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array), index: number, value: number) => number) | (() => string)}
  */
 module.exports.debt = mongoose.model('Debt', debtModel);

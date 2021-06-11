@@ -5,7 +5,7 @@
 
 /**
  * Reference for the express lib
- * @type {createApplication}
+ * @type {e | (() => Express)}
  */
 const express = require('express');
 
@@ -27,6 +27,9 @@ app.use(cors());
 // Requests for debt
 const debt = require('@routes/debt-route');
 app.use('/debt', debt);
+
+const status = require('@routes/status-route');
+app.use('/status', status);
 
 // Route API Home Screen.
 app.all('*', (request, response) => {
