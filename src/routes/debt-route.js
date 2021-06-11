@@ -15,6 +15,8 @@ const {
  */
 const { updateDebtRules, createDebtRules, validateDebt } =  require('@validators/debt-validator');
 
+const { countRequest } = require('@middleware/count-request-middleware');
+
 /**
  * Reference for Router on Express
  * @type {*|Router}
@@ -34,7 +36,7 @@ const router = express.Router();
  *
  * @apiSuccess (200) {Object} mixed `Debt` object
  */
-router.post('/', createDebtRules(), validateDebt, createDebt);
+router.post('/', [createDebtRules(), countRequest], validateDebt, createDebt);
 
 /**
  * @api {put} /debt/:userId Update Debt

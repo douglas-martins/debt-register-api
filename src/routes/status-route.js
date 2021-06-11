@@ -5,13 +5,29 @@
 const express = require('express');
 
 /**
+ * Reference for the moment lib
+ * @type {moment}
+ */
+const moment = require('moment');
+
+/**
  * Reference for Router on Express
  * @type {*|Router}
  */
 const router = express.Router();
 
-router.all('', (request, response) => {
-    response.json({ status: 'ok' })
+const { countRequest } = require('@middleware/count-request-middleware');
+
+const current = moment();
+
+router.all('', countRequest, (request, response) => {
+    const data = {
+        status: 'ok',
+        startServer: current,
+        uptime: moment(current).add(process.uptime(), 'seconds'),
+        requestCount: request.total,
+    };
+    response.end(JSON.stringify(data, null, 2));
 })
 
 module.exports = router;

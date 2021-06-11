@@ -12,7 +12,7 @@
     "express": "^4.17.1",
     "express-validator": "^6.5.0",
     "module-alias": "^2.2.2",
-    "moment": "^2.26.0",
+    "moment": "^2.29.1",
     "mongoose": "^5.9.18",
     "nodemon": "^2.0.4"
   },
@@ -28,7 +28,7 @@
     "@models": "src/models",
     "@routes": "src/routes",
     "@services": "src/services",
-    "@middleware": "src/middlewares",
+    "@middleware": "src/middleware",
     "@validators": "src/middleware/validators",
     "@infra": "infra/"
   }

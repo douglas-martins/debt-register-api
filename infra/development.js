@@ -12,7 +12,9 @@ const http = require('http');
  * @param app
  */
 module.exports = (app) => {
-    http.createServer(app).listen(config.port, config.baseUrl, (err) => {
+    const server = http.createServer(app);
+
+    server.listen(config.port, config.baseUrl, (err) => {
         if (err) {
             console.error(`Error starting localhost server ${err}`, {file: module.filename});
             return;
