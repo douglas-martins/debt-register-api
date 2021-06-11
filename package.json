@@ -11,6 +11,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.5.0",
+    "jest": "^27.0.4",
     "module-alias": "^2.2.2",
     "moment": "^2.29.1",
     "mongoose": "^5.9.18",
@@ -18,7 +19,8 @@
   },
   "scripts": {
     "dev": "node_modules/nodemon/bin/nodemon.js server.js localhost 3000",
-    "prod": "node server.js"
+    "prod": "node server.js",
+    "test": "jest"
   },
   "_moduleAliases": {
     "@root": ".",
