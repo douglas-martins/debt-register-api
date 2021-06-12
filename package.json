@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "@jest-mock/express": "^1.4.1",
+    "jest-mongoose-mock": "^1.2.0",
     "mongodb": "^3.6.9"
   }
 }

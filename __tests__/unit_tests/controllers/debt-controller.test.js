@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
 const supertest = require('supertest');
+const MockModel = require("jest-mongoose-mock");
 
 const app = require('@root/app');
 const DebController = require('@controllers/debt-controller');
 const DebService = require('@services/debt-service');
 const debtModel = require('@services/debt-service');
 
+jest.mock('@models/debt-model', () => new MockModel());
 jest.mock('mongoose');
 
 describe('Debt Controller Unit Tests', () => {
