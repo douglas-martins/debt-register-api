@@ -66,9 +66,9 @@ module.exports = {
   // maxWorkers: "50%",
 
   // An array of directory names to be searched recursively up from the requiring module's location
-  // moduleDirectories: [
-  //   "node_modules"
-  // ],
+  moduleDirectories: [
+    "node_modules"
+  ],
 
   // An array of file extensions your modules use
   // moduleFileExtensions: [
@@ -81,7 +81,18 @@ module.exports = {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    "@root(.*)": "<rootDir>/$1",
+    "@config(.*)": "<rootDir>/config/$1",
+    "@connections(.*)": "<rootDir>/src/connections/$1",
+    "@controllers(.*)": "<rootDir>/src/controllers/$1",
+    "@models(.*)": "<rootDir>/src/models/$1",
+    "@routes(.*)": "<rootDir>/src/routes/$1",
+    "@services(.*)": "<rootDir>/src/services/$1",
+    "@middleware(.*)": "<rootDir>/src/middleware/$1",
+    "@validators(.*)": "<rootDir>/src/middleware/validators/$1",
+    "@infra(.*)": "<rootDir>/infra/$1"
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],

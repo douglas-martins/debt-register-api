@@ -34,4 +34,4 @@ const debtModel = new Schema({
 /**
  * Model for the debtModel document
  */
-module.exports.debt = mongoose.model('Debt', debtModel);
+module.exports = mongoose.model('Debt', debtModel);

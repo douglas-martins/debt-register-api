@@ -25,7 +25,7 @@ const createDebt = async (request, response) => {
             (body) - ${JSON.stringify(request.body || {})}
             (queue) - ${JSON.stringify(request.queue || {})}
             (params) - ${JSON.stringify(request.params || {})}
-            (error) - ${e.message}`
+            (error) - ${e.message || ''}`
         );
         response.json({ message: 'Can not create debt!' });
     }
@@ -69,7 +69,7 @@ const findDebt = async (request, response) => {
     try {
         const result = await findDebtService(_id);
 
-        response.json(result);
+        response.json(result || {});
     } catch (e) {
         console.error(
             `DebtController - findDebt

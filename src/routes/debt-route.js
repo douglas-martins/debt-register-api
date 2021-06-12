@@ -51,7 +51,7 @@ router.post('/', [createDebtRules(), countRequest], validateDebt, createDebt);
  *
  * @apiSuccess (200) {Object} mixed `Debt` object
  */
-router.put('/:objectId', updateDebtRules, validateDebt, updateDebt);
+router.put('/:objectId', [updateDebtRules(), countRequest], validateDebt, updateDebt);
 
 /**
  * @api {get} /debt/:_id Get Debt
@@ -63,7 +63,7 @@ router.put('/:objectId', updateDebtRules, validateDebt, updateDebt);
  *
  * @apiSuccess (200) {Object[]} mixed `Debt` object
  */
-router.get('/:_id', findDebt);
+router.get('/:_id', countRequest, findDebt);
 
 /**
  * @api {get} /debt/all/ Get all Debts
@@ -73,7 +73,7 @@ router.get('/:_id', findDebt);
  *
  * @apiSuccess (200) {Object[]} mixed `Debt` object
  */
-router.get('/all', findAllDebts);
+router.get('/all', countRequest, findAllDebts);
 
 /**
  * @api {get} /debt/all/:userId Get all Debts from a user
@@ -85,7 +85,7 @@ router.get('/all', findAllDebts);
  *
  * @apiSuccess (200) {Object[]} mixed `Debt` object
  */
-router.get('/all/:userId', findAllDebtsByUser);
+router.get('/all/:userId', countRequest, findAllDebtsByUser);
 
 /**
  * @api {delete} /debt/:_id Delete al Debt
@@ -97,7 +97,7 @@ router.get('/all/:userId', findAllDebtsByUser);
  *
  * @apiSuccess (200) {Object[]} mixed `Debt` object
  */
-router.delete('/:_id', deleteDebt);
+router.delete('/:_id', countRequest, deleteDebt);
 
 
 module.exports = router;

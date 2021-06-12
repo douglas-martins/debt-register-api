@@ -10,9 +10,9 @@ const debtModel = require('@models/debt-model');
  */
 const createDebtService = async (data) => {
     try {
-        const debt = await new debtModel.debt(data);
+        const debt = await debtModel.create(data);
 
-        return await debt.save();
+        return debt;
     } catch (e) {
         throw new Error(e);
     }
@@ -26,7 +26,7 @@ const createDebtService = async (data) => {
  */
 const updateDebtService = async (data, objectId) => {
     try {
-        return await debtModel.debt.findOneAndUpdate({_id: objectId}, {$set: data}, {overwrite: true});
+        return await debtModel.findOneAndUpdate({_id: objectId}, {$set: data}, {overwrite: true});
     } catch (e) {
         throw new Error(e);
     }
@@ -39,7 +39,7 @@ const updateDebtService = async (data, objectId) => {
  */
 const findDebtService = async (_id) => {
     try {
-        return await debtModel.debt.findById(_id).lean();
+        return await debtModel.findById(_id);
     } catch (e) {
         throw new Error(e);
     }
@@ -51,7 +51,7 @@ const findDebtService = async (_id) => {
  */
 const findAllDebtsService = async () => {
     try {
-        return await debtModel.debt.find().lean();
+        return await debtModel.find();
     } catch (e) {
         throw new Error(e);
     }
@@ -64,7 +64,7 @@ const findAllDebtsService = async () => {
  */
 const findAllDebtsByUserService = async (userId) => {
     try {
-        return await debtModel.debt.find({userId: userId}).lean();
+        return await debtModel.find({userId: userId});
     } catch (e) {
         throw new Error(e);
     }
@@ -77,7 +77,7 @@ const findAllDebtsByUserService = async (userId) => {
  */
 const deleteDebtService = async (_id, request) => {
     try {
-        return await debtModel.debt.deleteOne({_id: _id}).lean();
+        return await debtModel.deleteOne({_id: _id});
     } catch (e) {
         throw new Error(e);
     }
