@@ -3,14 +3,6 @@
  */
 const debtModel = require('@models/debt-model');
 
-const checkReasonExistsForUser = async (userId, reason) => {
-    try {
-        return await debtModel.find({ userId, reason })
-    } catch (e) {
-        throw new Error(e);
-    }
-};
-
 /**
  * Create debt document on database
  * @param data: data for the new debt document
@@ -18,15 +10,7 @@ const checkReasonExistsForUser = async (userId, reason) => {
  */
 const createDebtService = async (data) => {
     try {
-        const { userId, reason } = data;
-
-        if (await checkReasonExistsForUser(userId, reason)) {
-            throw new Error('This user already has a debt reason register!');
-        }
-
-        const debt = await debtModel.create(data);
-
-        return debt;
+        return await debtModel.create(data);
     } catch (e) {
         throw new Error(e);
     }

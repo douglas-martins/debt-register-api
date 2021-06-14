@@ -21,7 +21,6 @@ const cors = require('cors');
  */
 const bodyParser = require('body-parser');
 
-
 /**
  * Reference for this application
  * @type {*|app}
@@ -45,6 +44,5 @@ app.use('/status', status);
 app.all('/', countRequest, (request, response) => {
     response.sendFile(__dirname + '/src/views/home.html');
 });
-
 
 module.exports = app;
