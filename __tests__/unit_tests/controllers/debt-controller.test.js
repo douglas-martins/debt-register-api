@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const faker = require('faker');
 const supertest = require('supertest');
 const MockModel = require("jest-mongoose-mock");
 
@@ -9,13 +10,25 @@ const debtModel = require('@services/debt-service');
 
 jest.mock('@models/debt-model', () => new MockModel());
 jest.mock('mongoose');
+jest.mock('faker');
 
 describe('Debt Controller Unit Tests', () => {
    describe('createDebt()', () => {
-       it('should return a success, for create new debt document',  (done) => {
+       it('should not return a success, for create new debt document, ' +
+           'debt with reason is already register for this userId',  (done) => {
            supertest(app)
                .post('/debt')
                .send({ userId: 1, price: 20, reason: 'Fake Reason', debtDate: new Date() })
+               .then((response) => {
+                   expect(response.statusCode).toBe(500);
+                   done();
+               });
+       });
+
+       it('should return a success, for create new debt document',  (done) => {
+           supertest(app)
+               .post('/debt')
+               .send({ userId: 1, price: 20, reason: faker.name.findName(), debtDate: new Date() })
                .then((response) => {
                    expect(response.statusCode).toBe(200);
                    done();

@@ -27,7 +27,7 @@ const createDebt = async (request, response) => {
             (params) - ${JSON.stringify(request.params || {})}
             (error) - ${e.message || ''}`
         );
-        response.json({ message: 'Can not create debt!' });
+        response.status(500).json({ message: 'Can not create debt!' });
     }
 }
 
@@ -53,7 +53,7 @@ const updateDebt = async (request, response) => {
             (params) - ${JSON.stringify(request.params || {})}
             (error) - ${e.message}`
         );
-        response.json({ message: 'Can not update debt!' });
+        response.status(500).json({ message: 'Can not update debt!' });
     }
 };
 
@@ -78,7 +78,7 @@ const findDebt = async (request, response) => {
             (params) - ${JSON.stringify(request.params || {})}
             (error) - ${e.message}`
         );
-        response.json({ message: 'Can not find debt!' });
+        response.status(500).json({ message: 'Can not find debt!' });
     }
 };
 
@@ -101,7 +101,7 @@ const findAllDebts = async (request, response) => {
             (params) - ${JSON.stringify(request.params || {})}
             (error) - ${e.message}`
         );
-        response.json({ message: 'Can not find list of debts!' });
+        response.status(500).json({ message: 'Can not find list of debts!' });
     }
 };
 
@@ -124,7 +124,7 @@ const findAllDebtsByUser = async (request, response) => {
             (params) - ${JSON.stringify(request.params || {})}
             (error) - ${e.message}`
         );
-        response.json({ message: 'Can not find user debts!' });
+        response.status(500).json({ message: 'Can not find user debts!' });
     }
 };
 
@@ -149,7 +149,7 @@ const deleteDebt = async (request, response) => {
             (params) - ${JSON.stringify(request.params || {})}
             (error) - ${e.message}`
         );
-        response.json({ message: 'Can not delete debt!' });
+        response.status(500).json({ message: 'Can not delete debt!' });
     }
 };
 
