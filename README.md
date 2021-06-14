@@ -89,3 +89,6 @@ DATABASE_NAME=debts
 ## Running unit tests
 
     $ yarn start jest
+
+## Application flow
+![alt text](https://github.com/douglas-martins/debt-register-web-client/blob/master/fluxograma.jpeg?raw=true)
