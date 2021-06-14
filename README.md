@@ -85,3 +85,7 @@ DATABASE_NAME=debts
 ## Running the project
 
     $ yarn start dev
+
+## Running unit tests
+
+    $ yarn start jest
